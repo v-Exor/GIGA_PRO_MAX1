@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkers Game</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 20px 0;
+    }
+
+    #menu {
+      margin-top: 20px;
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(8, 60px);
+      grid-template-rows: repeat(8, 60px);
+      margin-top: 20px;
+      border: 4px solid #4b2e1e;
+    }
+
+    .square {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Light brown squares */
+    .light {
+      background: #d2a679;
+    }
+
+    /* Dark brown squares */
+    .dark {
+      background: #8b5a2b;
+    }
+
+    .piece {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .red {
+      background: crimson;
+    }
+
+    .black {
+      background: black;
+    }
+
+    .king {
+      border: 3px solid gold;
+    }
+
+    #controls {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>♟️ Checkers</h1>
+
+  <div id="menu">
+    <button class="game-btn" onclick="startGame('pvp')">Player vs Player</button>
+    <button class="game-btn" onclick="startGame('ai')">Player vs AI</button>
+  </div>
+
+  <div id="gameArea" style="display:none;">
+    <div id="board"></div>
+    <div id="controls">
+      <button class="game-btn" onclick="location.href='../index.html'">⬅ Back to Hub</button>
+      <button class="game-btn" onclick="resetGame()">🔄 Restart</button>
+    </div>
+    <p id="status"></p>
+  </div>
+
+  <script src="checkers.js"></script>
+</body>
+</html>

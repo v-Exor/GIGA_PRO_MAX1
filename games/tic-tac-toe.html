@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    }
+
+    /* Board styling */
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      gap: 10px;
+      justify-content: center;
+      margin: 20px auto;
+    }
+
+    .cell {
+      width: 120px;
+      height: 120px;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,255,255,0.2);
+      font-size: 3rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .cell:hover {
+      background: rgba(255,255,255,0.1);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    /* Colors for X and O */
+    .cell.X {
+      color: #ff4b5c; /* red for X */
+      text-shadow: 0 0 15px rgba(255,75,92,0.7);
+    }
+
+    .cell.O {
+      color: #4ba3ff; /* blue for O */
+      text-shadow: 0 0 15px rgba(75,163,255,0.7);
+    }
+
+    #status {
+      font-size: 1.4rem;
+      margin: 15px;
+    }
+
+    /* Unified button style */
+    .game-btn {
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .game-btn:hover {
+      background: linear-gradient(135deg, #2a5298, #1e3c72);
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 10px rgba(0,0,0,0.3);
+    }
+
+    #gameUI { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Tic Tac Toe</h1>
+
+  <!-- Mode Selection -->
+  <div id="modeSelect">
+    <h3>Choose Game Mode</h3>
+    <button class="game-btn" onclick="startGame('pvp')">Multiplayer</button>
+    <button class="game-btn" onclick="startGame('ai')">Vs AI</button>
+  </div>
+
+  <!-- Game UI -->
+  <div id="gameUI">
+    <div class="board" id="board"></div>
+    <p id="status"></p>
+    <button class="game-btn" onclick="restart()">🔄 Restart</button>
+    <button class="game-btn" onclick="exitGame()">🚪 Exit to Hub</button>
+  </div>
+
+  <!-- Link JS -->
+  <script src="tic-tac-toe.js"></script>
+</body>
+</html>

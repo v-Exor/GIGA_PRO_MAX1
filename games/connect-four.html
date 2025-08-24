@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect Four</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      text-align: center;
+    }
+    .board-wrapper {
+      position: relative;
+      width: fit-content;
+      margin: auto;
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(7, 70px);
+      grid-template-rows: repeat(6, 70px);
+      gap: 5px;
+      justify-content: center;
+      margin-top: 20px;
+      background: #0f2027;
+      padding: 10px;
+      border-radius: 12px;
+    }
+    .cell {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #203a43;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .red { background: red; }
+    .yellow { background: yellow; }
+    .falling {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10;
+    }
+    #gameUI { display: none; }
+    #modeSelect button, #gameUI button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      background: #1e3c72;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #modeSelect button:hover, #gameUI button:hover {
+      background: #2a5298;
+    }
+  </style>
+</head>
+<body>
+  <h1>Connect Four</h1>
+
+  <!-- Mode Selection -->
+  <div id="modeSelect">
+    <h3>Choose Game Mode</h3>
+    <button class="game-btn" onclick="startGame('pvp')">Multiplayer</button>
+    <button class="game-btn" onclick="startGame('ai')">Vs AI</button>
+  </div>
+
+  <!-- Game UI -->
+  <div id="gameUI">
+    <div class="board-wrapper">
+      <div class="board" id="board"></div>
+    </div>
+    <p id="status"></p>
+    <button class="game-btn" onclick="restart()">🔄 Restart</button>
+    <button class="game-btn" onclick="exitGame()">🚪 Exit to Hub</button>
+  </div>
+
+  <script src="connect-four.js"></script>
+</body>
+</html>
